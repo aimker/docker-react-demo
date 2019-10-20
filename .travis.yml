@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t aimker/react-docker-demo -f Dockerfile.dev . -t 
+
+script:
+  - docker run -e CI=true aimker/react-docker-demo npm run test
