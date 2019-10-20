@@ -10,7 +10,7 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  region: $$AWS_REGION 
+  region: $AWS_REGION 
   app: "react-docker-demo"
   env: $AWS_APP_ENV_NAME
   bucket_name: $AWS_BUCKET_NAME
