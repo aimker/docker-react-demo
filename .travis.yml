@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run -e CI=true aimker/react-docker-demo npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: $$AWS_REGION 
+  app: "react-docker-demo"
+  env: $AWS_APP_ENV_NAME
+  bucket_name: $AWS_BUCKET_NAME
+  bucket_path: "react-docker-demo"
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY
